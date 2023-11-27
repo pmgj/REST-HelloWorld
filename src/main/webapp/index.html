@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Services</title>
+    <meta charset="UTF-8" />
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <h1>Web Services</h1>
+    <h2>Obter texto a partir de GET</h2>
+    <p><a href="webresources/hello">Teste</a></p>
+    <h2>Obter XML a partir de GET passando parâmetros</h2>
+    <p><a href="webresources/hello/xml/Fulano/34">Teste</a></p>
+    <h2>Obter XML a partir de GET usando query string</h2>
+    <p><a href="webresources/hello/querystring?nome=Beltrano&amp;idade=45">Teste</a></p>
+    <h2>Obter JSON a partir de GET passando parâmetros</h2>
+    <p><a href="webresources/hello/json/Fulano/34">Teste</a></p>
+    <h2>Obter texto a partir de POST usando parâmetros de formulário</h2>
+    <form method="post" action="webresources/hello/plain">
+        Enviar mensagem por post: <input type="text" name="mensagem" /> <input type="submit" value="Enviar" />
+    </form>
+    <h2>Obter texto a partir de POST usando JSON</h2>
+    <form>
+        <p>Nome: <input type="text" name="nome" /></p>
+        <p>Idade: <input type="text" name="idade" /></p>
+        <input type="button" name="botaoJSON" value="Enviar" />
+    </form>
+    <h2>Obter texto a partir de POST usando XML</h2>
+    <form>
+        <p>Nome: <input type="text" name="nome" /></p>
+        <p>Idade: <input type="text" name="idade" /></p>
+        <input type="button" name="botaoXML" value="Enviar" />
+    </form>
+    <h2>Obter texto a partir de POST usando parâmetros de formulário com Ajax</h2>
+    <form>
+        Enviar mensagem por post: <input type="text" name="mensagem" /> <input type="button" name="botaoPOST"
+            value="Enviar" />
+    </form>
+</body>
+
+</html>
