@@ -58,7 +58,7 @@ public class WebService {
     }
 
     @POST
-    @Path("/json")
+    @Path("/pessoa")
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.APPLICATION_JSON)
     public String method6(Pessoa p) {
@@ -66,7 +66,7 @@ public class WebService {
     }
 
     @POST
-    @Path("/xml")
+    @Path("/pessoa")
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.APPLICATION_XML)
     public String method7(Pessoa p) {

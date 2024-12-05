@@ -3,7 +3,7 @@ function postJSON() {
     let obj = { nome: form.nome.value, idade: form.idade.value };
     let xhr = new XMLHttpRequest();
     xhr.onload = () => alert(xhr.responseText);
-    xhr.open("post", "webresources/hello/json");
+    xhr.open("post", "webresources/hello/pessoa");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify(obj));
 }
@@ -12,7 +12,7 @@ function postXML() {
     let obj = `<pessoa><nome>${form.nome.value}</nome><idade>${form.idade.value}</idade></pessoa>`;
     let xhr = new XMLHttpRequest();
     xhr.onload = () => alert(xhr.responseText);
-    xhr.open("post", "webresources/hello/xml");
+    xhr.open("post", "webresources/hello/pessoa");
     xhr.setRequestHeader("Content-Type", "application/xml");
     xhr.send(obj);
 }
