@@ -1,5 +1,6 @@
 function postJSON() {
-    let obj = { nome: document.forms[1].nome.value, idade: document.forms[1].idade.value };
+    let form = document.forms["postJSONtoTEXT"];
+    let obj = { nome: form.nome.value, idade: form.idade.value };
     let xhr = new XMLHttpRequest();
     xhr.onload = () => alert(xhr.responseText);
     xhr.open("post", "webresources/hello/json");
@@ -7,7 +8,8 @@ function postJSON() {
     xhr.send(JSON.stringify(obj));
 }
 function postXML() {
-    let obj = `<pessoa><nome>${document.forms[2].nome.value}</nome><idade>${document.forms[2].idade.value}</idade></pessoa>`;
+    let form = document.forms["postXMLtoTEXT"];
+    let obj = `<pessoa><nome>${form.nome.value}</nome><idade>${form.idade.value}</idade></pessoa>`;
     let xhr = new XMLHttpRequest();
     xhr.onload = () => alert(xhr.responseText);
     xhr.open("post", "webresources/hello/xml");
@@ -15,15 +17,33 @@ function postXML() {
     xhr.send(obj);
 }
 function postText() {
+    let form = document.forms["postFORMtoTEXT"];
     let xhr = new XMLHttpRequest();
     xhr.onload = () => alert(xhr.responseText);
     xhr.open("post", "webresources/hello/plain");
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send("mensagem=" + document.forms[3].mensagem.value);
+    xhr.send("mensagem=" + form.mensagem.value);
+}
+function postForm2() {
+    let form = document.forms["postFORM2toTEXT"];
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => alert(xhr.responseText);
+    xhr.open("post", "webresources/hello/plain2");
+    xhr.send(new FormData(form));
+}
+function postForm3() {
+    let form = document.forms["postFORM2toJSON"];
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => alert(xhr.responseText);
+    xhr.open("post", "webresources/hello/plain2");
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.send(new FormData(form));
 }
 function init() {
     document.querySelector("input[name='botaoJSON']").onclick = postJSON;
     document.querySelector("input[name='botaoXML']").onclick = postXML;
     document.querySelector("input[name='botaoPOST']").onclick = postText;
+    document.querySelector("input[name='botaoFORM2']").onclick = postForm2;
+    document.querySelector("input[name='botaoFORM3']").onclick = postForm3;
 }
 onload = init;
