@@ -23,20 +23,20 @@ import jakarta.ws.rs.core.MultivaluedMap;
 public class WebService {
 
     @GET
-    @Produces({ MediaType.TEXT_PLAIN })
+    @Produces(MediaType.TEXT_PLAIN)
     public String method1() {
         return "Hello World!";
     }
 
     @GET
-    @Produces({ MediaType.APPLICATION_XML })
+    @Produces(MediaType.APPLICATION_XML)
     @Path("/xml/{nome}/{idade}")
     public Pessoa method2(@PathParam("nome") String nome, @PathParam("idade") Integer idade) {
         return new Pessoa(nome, idade);
     }
 
     @GET
-    @Produces({ MediaType.APPLICATION_XML })
+    @Produces(MediaType.APPLICATION_XML)
     @Path("/querystring")
     public Pessoa method3(@QueryParam("nome") String nome, @QueryParam("idade") Integer idade) {
         return new Pessoa(nome, idade);
@@ -87,10 +87,11 @@ public class WebService {
             MediaType mediaType = part.getMediaType();
             sb.append(name).append(": ");
             System.out.println(name);
-            System.out.println(fileName.orElse("No"));
+            System.out.println(fileName.orElse("Não é um arquivo."));
             try {
-                sb.append(new String(is.readAllBytes(), StandardCharsets.UTF_8)).append(", ");
-                System.out.println(new String(is.readAllBytes(), StandardCharsets.UTF_8));
+                String value = new String(is.readAllBytes(), StandardCharsets.UTF_8);
+                sb.append(value).append(", ");
+                System.out.println(value);
             } catch (IOException ex) {
                 System.out.println("Erro lendo conteúdo.");
             }

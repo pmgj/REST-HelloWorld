@@ -29,6 +29,7 @@ function postForm2() {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => alert(xhr.responseText);
     xhr.open("post", "webresources/hello/plain2");
+    xhr.setRequestHeader("Accept", "text/plain");
     xhr.send(new FormData(form));
 }
 function postForm3() {
