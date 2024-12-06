@@ -30,6 +30,7 @@
             <artifactId>jersey-hk2</artifactId>
             <version>3.1.9</version>
         </dependency>
+        <!-- IMP REST Multipart -->
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-multipart</artifactId>
